@@ -53,33 +53,33 @@ def e5_instruct_encode(target='title'):
     with open('./out_data' + f'e5_instruct_title_{target}_data.pkl', "wb") as f:
         pk.dump(dic_paper_embedding, f)
 
-# KEY = args.api_key
-# print(f'Key: {KEY}')
-# vo = voyageai.Client(api_key=KEY)
+KEY = args.api_key
+print(f'Key: {KEY}')
+vo = voyageai.Client(api_key=KEY)
 
-# def _vo_encode(texts):
-#     result = vo.embed(texts, model="voyage-large-2-instruct")
-#     return result.embeddings
+def _vo_encode(texts):
+    result = vo.embed(texts, model="voyage-large-2-instruct")
+    return result.embeddings
 
-# def vo_encode(target='title'):
-#     batch_size = 128
+def vo_encode(target='title'):
+    batch_size = 128
     
-#     dic_paper_embedding ={}
-#     paper_list = [[key, value] for key,value in papers.items()]
-#     for ii in tqdm(range(0, len(paper_list), batch_size), total=len(paper_list)//batch_size):
-#         batch_papers = paper_list[ii: ii + batch_size]
-#         texts = [paper[1][target] if paper[1][target] != None else '' for paper in batch_papers]
+    dic_paper_embedding ={}
+    paper_list = [[key, value] for key,value in papers.items()]
+    for ii in tqdm(range(0, len(paper_list), batch_size), total=len(paper_list)//batch_size):
+        batch_papers = paper_list[ii: ii + batch_size]
+        texts = [paper[1][target] if paper[1][target] != None else '' for paper in batch_papers]
         
-#         embeddings = _encode(texts)
+        embeddings = _encode(texts)
         
-#         tt = 0
-#         for jj in range(ii, ii+len(batch_papers)):
-#             paper_id = paper_list[jj][0]
-#             paper_vec = embeddings[tt]
-#             tt+=1
-#             dic_paper_embedding[paper_id] = paper_vec
-#     with open('./out_data' + f'voyage_{target}_data.pkl', "wb") as f:
-#         pk.dump(dic_paper_embedding, f)
+        tt = 0
+        for jj in range(ii, ii+len(batch_papers)):
+            paper_id = paper_list[jj][0]
+            paper_vec = embeddings[tt]
+            tt+=1
+            dic_paper_embedding[paper_id] = paper_vec
+    with open('./out_data' + f'voyage_{target}_data.pkl', "wb") as f:
+        pk.dump(dic_paper_embedding, f)
 
 
 bge = FlagModel('BAAI/bge-m3', use_fp16=True)
