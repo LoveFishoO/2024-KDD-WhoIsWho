@@ -155,12 +155,11 @@ python3 ensemble.py
 ### Single Model
 | Method| AUC |
 |-------|-------|
-| LGB-E5 |0.81658|
-| LGB-E5-Instruct |0.81709|
 | LGB-Voyage |0.81433|
+| LGB-E5-Instruct |0.81827|
+| LGB(E5-Instruct/Voyage) x 2 + GCN(E5-Instruct/Voyage) x 4|0.82486|
 
 Note: 
-* ``E5: multilingual-e5-large`` 
 * ``E5-Instruct: multilingual-e5-large-instruct`` 
 * ``Voyage: voyage-large-2-instruct``
 
