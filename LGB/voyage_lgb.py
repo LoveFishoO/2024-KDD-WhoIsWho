@@ -1435,7 +1435,7 @@ def main(train_author,valid_author, pid_to_info, submission, task):
                         'year_gap_mean', 'year_gap_median', 'year_gap_min_max_ave',
                         
                         # 'before_match_org_cnt_over_all_cnt','before_match_venue_cnt_over_all_cnt'
-                        
+                        'max_title_dist', 'mean_title_dist', 'std_title_dist', 'skew_title_dist', 'max_title_sim_add_dist'
                         ]
                 #  + [ 'coaut_paper_count_over_paper_num']
                 # + ['max_cnt_aut_over_paper_author', 'max_cnt_coaut_jaccard_sim', 'max_cnt_org_over_paper_orgs', 'max_cnt_org_jaccard_sim',
@@ -1557,7 +1557,7 @@ def main(train_author,valid_author, pid_to_info, submission, task):
                     'year_gap_min_max_ave',
                     
                     # 'before_match_org_cnt_over_all_cnt','before_match_venue_cnt_over_all_cnt'
-                    
+                    'max_title_dist', 'mean_title_dist', 'std_title_dist', 'skew_title_dist', 'max_title_sim_add_dist'
                     ]]
 
     out_train = train_feats[out_cols].fillna(0)
