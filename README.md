@@ -16,6 +16,9 @@ cd 2024-KDD-WhoIsWho/
 ```
 
 ### Installation
+```bash
+pip install -r requirements.txt
+```
 
 ## Run
 
