@@ -1352,7 +1352,6 @@ def main(train_author,valid_author, pid_to_info, submission, task):
     train_feats=pd.DataFrame(train_feats, columns=['id','name', 'title', 'abstract', 'venue'] + column_names + cross_columns)
     train_feats['label']=labels
     # train_feats.head()
-    print('start')
     train_feats = dataframe_cross_feat_engineer(train_feats)
 
     valid_feats=[]
