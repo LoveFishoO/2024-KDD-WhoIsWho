@@ -168,11 +168,11 @@ def e5_encode(target='title'):
 if __name__ == '__main__':
     
     e5_instruct_encode('title')
-    e5_instruct_encode('abstruct')
+    e5_instruct_encode('abstract')
     e5_instruct_encode('venue')
     
     vo_encode('title')
-    vo_encode('abstruct')
+    vo_encode('abstract')
     vo_encode('venue')
     
     org_encode()
