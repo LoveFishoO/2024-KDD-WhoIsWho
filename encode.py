@@ -42,7 +42,7 @@ def e5_instruct_encode(target='title'):
         batch_papers = paper_list[ii: ii + batch_size]
         texts = [paper[1][target] for paper in batch_papers]
         
-        embeddings = _encode(texts)
+        embeddings = _e5_instruct_encode(texts)
         
         tt = 0
         for jj in range(ii, ii+len(batch_papers)):
@@ -50,7 +50,7 @@ def e5_instruct_encode(target='title'):
             paper_vec = embeddings[tt]
             tt+=1
             dic_paper_embedding[paper_id] = paper_vec.to('cpu').detach().numpy()
-    with open('./out_data' + f'e5_instruct_title_{target}_data.pkl', "wb") as f:
+    with open('./out_data/' + f'e5_instruct_{target}_data.pkl', "wb") as f:
         pk.dump(dic_paper_embedding, f)
 
 KEY = args.api_key
@@ -78,7 +78,7 @@ def vo_encode(target='title'):
             paper_vec = embeddings[tt]
             tt+=1
             dic_paper_embedding[paper_id] = paper_vec
-    with open('./out_data' + f'voyage_{target}_data.pkl', "wb") as f:
+    with open('./out_data/' + f'voyage_{target}_data.pkl', "wb") as f:
         pk.dump(dic_paper_embedding, f)
 
 
@@ -119,51 +119,50 @@ def org_encode():
     with open(f'./out_data/bge_orgs_data.pkl', "wb") as f:
         pk.dump(orgs_embedding, f)
 
-device = torch.device('cuda:0')
-e5_tokenizer = AutoTokenizer.from_pretrained('intfloat/multilingual-e5-large')
-e5_model = AutoModel.from_pretrained('intfloat/multilingual-e5-large', torch_dtype=torch.float16).to(device)
+# device = torch.device('cuda:0')
+# e5_tokenizer = AutoTokenizer.from_pretrained('intfloat/multilingual-e5-large')
+# e5_model = AutoModel.from_pretrained('intfloat/multilingual-e5-large', torch_dtype=torch.float16).to(device)
 
 
-papers_list = [[key, value] for key,value in papers.items()]
-
-def average_pool(last_hidden_states,
-                 attention_mask):
-    attention_mask=attention_mask.to(device)
-    last_hidden = last_hidden_states.masked_fill(~attention_mask[..., None].bool(), 0.0)
-    return last_hidden.sum(dim=1) / attention_mask.sum(dim=1)[..., None]
+# def average_pool(last_hidden_states,
+#                  attention_mask):
+#     attention_mask=attention_mask.to(device)
+#     last_hidden = last_hidden_states.masked_fill(~attention_mask[..., None].bool(), 0.0)
+#     return last_hidden.sum(dim=1) / attention_mask.sum(dim=1)[..., None]
 
 
-def e5_encode(target='title'):
-    batch_size = 5000
+# def e5_encode(target='title'):
+#     batch_size = 5000
 
-    dic_paper_embedding = {}
+#     dic_paper_embedding = {}
     
-    for ii in tqdm(range(0, len(papers_list), batch_size), total=len(papers_list)//batch_size):
+#     papers_list = [[key, value] for key,value in papers.items()]
+#     for ii in tqdm(range(0, len(papers_list), batch_size), total=len(papers_list)//batch_size):
     
-        batch_papers = papers_list[ii: ii + batch_size]
-        texts = [paper[1][target] if paper[1][target] != None else '' for paper in batch_papers]
+#         batch_papers = papers_list[ii: ii + batch_size]
+#         texts = [paper[1][target] if paper[1][target] != None else '' for paper in batch_papers]
         
-        batch_dict = e5_tokenizer(texts, max_length=50, padding=True, truncation=True, return_tensors='pt')
+#         batch_dict = e5_tokenizer(texts, max_length=50, padding=True, truncation=True, return_tensors='pt')
 
-        inputs = {key: value.to(device) for key, value in batch_dict.items()}
-        with torch.no_grad():
-            outputs = e5_model(**inputs)
+#         inputs = {key: value.to(device) for key, value in batch_dict.items()}
+#         with torch.no_grad():
+#             outputs = e5_model(**inputs)
 
-        embeddings = average_pool(outputs.last_hidden_state, batch_dict['attention_mask'])
-        del outputs
-        del inputs
-        del batch_dict
-        gc.collect()
+#         embeddings = average_pool(outputs.last_hidden_state, batch_dict['attention_mask'])
+#         del outputs
+#         del inputs
+#         del batch_dict
+#         gc.collect()
 
-        tt = 0
-        for jj in range(ii, ii+len(batch_papers)):
-            paper_id = papers_list[jj][0]
-            paper_vec = embeddings[tt]
-            tt+=1
-            dic_paper_embedding[paper_id] = paper_vec.to('cpu').detach().numpy()
+#         tt = 0
+#         for jj in range(ii, ii+len(batch_papers)):
+#             paper_id = papers_list[jj][0]
+#             paper_vec = embeddings[tt]
+#             tt+=1
+#             dic_paper_embedding[paper_id] = paper_vec.to('cpu').detach().numpy()
 
-    with open(f'./out_data/e5_{target}_data.pkl', "wb") as f:
-        pk.dump(dic_paper_embedding, f)
+#     with open(f'./out_data/e5_{target}_data.pkl', "wb") as f:
+#         pk.dump(dic_paper_embedding, f)
     
 if __name__ == '__main__':
     
