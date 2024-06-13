@@ -160,7 +160,7 @@ python3 ./train.py \
 
 **Note: please use CPU to train model.**
 
-### Essemble
+### Ensemble
 ```bash
 cd ..
 python3 ensemble.py
