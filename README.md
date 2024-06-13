@@ -1,3 +1,7 @@
+## Introduction
+**Team:** LoveFishO
+
+**Rank:** 2
 ## Architecture
 ![imgae](./png/architecture.png)
 
@@ -5,6 +9,11 @@
 - Linux
 - Python 3.10.12
 - PyTorch 2.2.0.dev20231107+cu121
+
+## Hardware device
+- CPU I9 13900k
+- GPU RTX4090 24G
+- RAM 128G
 
 ## Getting Started
 ### Dir description
@@ -15,6 +24,7 @@
 
 ``output:`` Store all result data
 
+Download data from [HERE](https://pan.quark.cn/s/cd7f779462fd)
 
 ### Clone this repo
 
@@ -118,8 +128,8 @@ For ``E5-Instruct embedding + E5-Instruct LGB features``
 
 ```bash
 python3 ./train.py \
-    --train_dir ../out_data/e5_instruct_graph_train.pkl
-    --test_dir ../out_data/e5_instruct_graph_test.pkl
+    --train_dir ../out_data/e5_instruct_graph_train.pkl \
+    --test_dir ../out_data/e5_instruct_graph_test.pkl \
     --save_result_dir ../output/e5_instruct_gcn.json
 ```
 
@@ -127,24 +137,24 @@ For  ``E5-Instruct embedding + Voyage LGB features``
 
 ```bash
 python3 ./train.py \
-    --train_dir ../out_data/e5_instruct_embed_voyage_feats_graph_train.pkl
-    --test_dir ../out_data/e5_instruct_embed_voyage_feats_graph_test.pkl
+    --train_dir ../out_data/e5_instruct_embed_voyage_feats_graph_train.pkl \
+    --test_dir ../out_data/e5_instruct_embed_voyage_feats_graph_test.pkl \
     --save_result_dir ../output/e5_instruct_embed_voyage_feats_gcn.json
 ```
 For ``Voyage embedding + Voyage LGB features``
 
 ```bash
 python3 ./train.py \
-    --train_dir ../out_data/voyage_graph_train.pkl
-    --test_dir ../out_data/voyage_graph_test.pkl
+    --train_dir ../out_data/voyage_graph_train.pkl \
+    --test_dir ../out_data/voyage_graph_test.pkl \
     --save_result_dir ../output/voyage_gcn.json
 ```
 
 For ``Voyage embedding + E5-Instruct LGB features``
 ```bash
 python3 ./train.py \
-    --train_dir ../out_data/voyage_embed_e5_instruct_feats_graph_train.pkl
-    --test_dir ../out_data/voyage_embed_e5_instruct_feats_graph_test.pkl
+    --train_dir ../out_data/voyage_embed_e5_instruct_feats_graph_train.pkl  \
+    --test_dir ../out_data/voyage_embed_e5_instruct_feats_graph_test.pkl \
     --save_result_dir ../output/voyage_embed_e5_instruct_feats_gcn.json
 ```
 
