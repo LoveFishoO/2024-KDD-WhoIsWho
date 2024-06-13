@@ -31,6 +31,8 @@ Inculde three embedding models
 ```bash
 python3 encode.py --api_key "The api key of voyageai"
 ```
+To reproduce the results, I recommend to download embedding data from [HERE](https://pan.quark.cn/s/7d3541a2d29b)
+
 
 ### Run LGB & Save feature dataframe
 ```bash
