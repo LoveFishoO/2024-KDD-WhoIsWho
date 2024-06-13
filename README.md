@@ -2,6 +2,9 @@
 **Team:** LoveFishO
 
 **Rank:** 2
+
+**LoveFishO:**  Algorithm Engineer from NingBo
+
 ## Architecture
 ![imgae](./png/architecture.png)
 
@@ -168,12 +171,11 @@ python3 ensemble.py
 
 
 ## Results on Test Set
-
-### Single Model
 | Method| AUC |
 |-------|-------|
 | LGB-Voyage |0.81433|
 | LGB-E5-Instruct |0.81827|
+| GCN-E5-Instruct |0.78082|
 | LGB(E5-Instruct/Voyage) x 2 + GCN(E5-Instruct/Voyage) x 4|0.82486|
 
 Note: 
