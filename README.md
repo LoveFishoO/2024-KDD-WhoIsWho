@@ -59,7 +59,7 @@ cd GCN
 For ``E5-Instruct embedding + E5-Instruct LGB features``
 
 ```bash
-python3 ./GCN/build_graph.py \ 
+python3 ./build_graph.py \ 
     --title_embeddings_dir ../out_data/e5_instruct_title_data.pkl \
     --abstract_embeddings_dir ../out_data/e5_instruct_abstract_data.pkl \
     --venue_embeddings_dir ../out_data/e5_instruct_venue_data.pkl \
@@ -71,7 +71,7 @@ python3 ./GCN/build_graph.py \
 For ``E5-Instruct embedding + Voyage LGB features``
 
 ```bash
-python3 ./GCN/build_graph.py \ 
+python3 ./build_graph.py \ 
     --title_embeddings_dir ../out_data/e5_instruct_title_data.pkl \
     --abstract_embeddings_dir ../out_data/e5_instruct_abstract_data.pkl \
     --venue_embeddings_dir ../out_data/e5_instruct_venue_data.pkl \
@@ -83,7 +83,7 @@ python3 ./GCN/build_graph.py \
 For ``Voyage embedding + Voyage LGB features``
 
 ```bash
-python3 ./GCN/build_graph.py \ 
+python3 ./build_graph.py \ 
     --title_embeddings_dir ../out_data/voyage_title_data.pkl \
     --abstract_embeddings_dir ../out_data/voyage_abstract_data.pkl \
     --venue_embeddings_dir ../out_data/voyage_venue_data.pkl \
@@ -96,7 +96,7 @@ python3 ./GCN/build_graph.py \
 For ``Voyage embedding + E5-Instruct LGB features``
 
 ```bash
-python3 ./GCN/build_graph.py \ 
+python3 ./build_graph.py \ 
     --title_embeddings_dir ../out_data/voyage_title_data.pkl \
     --abstract_embeddings_dir ../out_data/voyage_abstract_data.pkl \
     --venue_embeddings_dir ../out_data/voyage_venue_data.pkl \
