@@ -27,8 +27,7 @@
 
 ``output:`` Store all result data
 
-Download data from [HERE](https://pan.quark.cn/s/cd7f779462fd)
-
+Download data from [HERE](https://pan.baidu.com/s/1laa1aX7Y1NUoXxeEoyYzVQ?pwd=kvcq). The code is ``kvcq``
 ### Clone this repo
 
 ```bash
@@ -52,7 +51,7 @@ Inculde three embedding models
 ```bash
 python3 encode.py --api_key "The api key of voyageai"
 ```
-To reproduce the results, I recommend to download embedding data from [HERE](https://pan.quark.cn/s/7d3541a2d29b)
+To reproduce the results, I recommend to download embedding data from [HERE](https://pan.baidu.com/s/1-bYCCJ_ZIamPMbD1QGuFvA?pwd=jd9u). The code is ``jd9u``
 
 
 ### Run LGB & Save feature dataframe
