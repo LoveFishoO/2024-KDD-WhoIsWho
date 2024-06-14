@@ -162,12 +162,30 @@ python3 ./train.py \
 
 **Note: please use CPU to train model.**
 
+
+## Inference
+
+### LGB
+```bash
+cd LGB
+```
+
+For ``E5-Instruct``
+```bash
+python3 ./inference.py \ 
+    --model e5_instruct \ 
+    --test_path ../out_data/e5_instruct_lgb_test.csv \ 
+    --test_author_path ../IND-WhoIsWho/ind_test_author_submit.json \ 
+    --result_path ../output/e5_instruct_lgb.json \ 
+    --model_dir ./lgb_model/
+```
+
+
 ### Ensemble
 ```bash
 cd ..
 python3 ensemble.py
 ```
-
 
 ## Results on Test Set
 | Method| AUC |
