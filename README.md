@@ -181,6 +181,16 @@ python3 ./inference.py \
 ```
 
 
+For ``Voyage-Instruct``
+```bash
+python3 ./inference.py \ 
+    --model voyage \ 
+    --test_path ../out_data/voyage_lgb_test.csv \ 
+    --test_author_path ../IND-WhoIsWho/ind_test_author_submit.json \ 
+    --result_path ../output/voyage_lgb.json \ 
+    --model_dir ./lgb_model/
+```
+
 ### Ensemble
 ```bash
 cd ..
