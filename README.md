@@ -190,6 +190,42 @@ python3 ./inference.py \
     --result_path ../output/voyage_lgb.json \ 
     --model_dir ./lgb_model/
 ```
+### GCN
+For ``E5-Instruct embedding + E5-Instruct LGB features``
+
+```bash
+python3 ./inference.py \
+    --test_dir ../out_data/e5_instruct_graph_test.pkl \
+    --model_path ./graph_model/e5_instruct_gcn_model.pt \
+    --save_result_dir ../output/e5_instruct_gcn.json
+```
+
+For  ``E5-Instruct embedding + Voyage LGB features``
+
+```bash
+python3 ./inference.py \
+    --test_dir ../out_data/e5_instruct_embed_voyage_feats_graph_test.pkl \
+    --model_path ./graph_model/e5_instruct_embed_voyage_feats_gcn_model.pt \
+    --save_result_dir ../output/e5_instruct_embed_voyage_feats_gcn.json
+```
+For ``Voyage embedding + Voyage LGB features``
+
+```bash
+python3 ./inference.py \
+    --test_dir ../out_data/voyage_graph_test.pkl \
+    --model_path ../out_data/voyage_gcn_model.pt \
+    --save_result_dir ../output/voyage_gcn.json
+```
+
+For ``Voyage embedding + E5-Instruct LGB features``
+```bash
+python3 ./inference.py \
+    --test_dir ../out_data/voyage_embed_e5_instruct_feats_graph_test.pkl  \
+    --model_path ../out_data/voyage_embed_e5_instruct_feats_gcn_model.pt \
+    --save_result_dir ../output/voyage_embed_e5_instruct_feats_gcn.json
+```
+
+
 
 ### Ensemble
 ```bash
