@@ -5,6 +5,7 @@
 
 **LoveFishO:**  Algorithm Engineer from NingBo
 
+**Report:** https://openreview.net/pdf?id=oxOEqVH4tI
 ## Architecture
 ![imgae](./png/architecture.png)
 
